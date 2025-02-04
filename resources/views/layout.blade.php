@@ -14,13 +14,14 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{{ route('makers.index') }}">Gyártók</a></li>
-</ul>
-</nav>
-</div>
-</header>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="{{ route('makers.index') }}">Gyártók</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 <main>
        @yield('content')
 </main>

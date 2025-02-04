@@ -13,8 +13,6 @@ class MakerController extends Controller
     public function index()
     {
         $makers = Maker::all();
-        var_dump($makers);
-        die;
         return view('makers.index', ['makers' => $makers]);
 
     }
@@ -24,15 +22,23 @@ class MakerController extends Controller
      */
     public function create()
     {
-        //
+        return view(view: 'makers.create');
     }
 
-    /**
+     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $maker  = new Maker();
+        $maker->name = $request->input('name');
+        $maker->logo = $request->input('logo');
+        $maker->save();
+ 
+        return redirect()->route('makers.index')->with('success', "{$maker->name} sikeresen létrehozva");
     }
 
     /**
